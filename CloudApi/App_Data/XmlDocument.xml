@@ -1,0 +1,2077 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CloudApi</name>
+    </assembly>
+    <members>
+        <member name="T:CloudApi.AliGenie.DeviceHandleThread">
+            <summary>
+            获取天猫指令队列，发到具体的设备上...
+            </summary>
+        </member>
+        <member name="M:CloudApi.AliGenie.DeviceHandleThread.StartThread">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CloudApi.AliGenie.X1DeviceProperties.AbstractDevicePropertiesAndAction">
+            <summary>
+            抽象设备属性
+            </summary>
+        </member>
+        <member name="T:CloudApi.AliGenie.X1DeviceProperties.AnglePropertieAndAction">
+            <summary>
+            角度属性
+            </summary>
+        </member>
+        <member name="T:CloudApi.AliGenie.X1DeviceProperties.DevicePropertiesAndActionDecorator">
+            <summary>
+            属性装饰器
+            </summary>
+        </member>
+        <member name="T:CloudApi.AliGenie.X1DeviceProperties.AnionPropertieAndAction">
+            <summary>
+            负离子功能属性
+            </summary>
+        </member>
+        <member name="T:CloudApi.AliGenie.X1DeviceProperties.BrightnessPropertieAndAction">
+            <summary>
+            亮度属性
+            </summary>
+        </member>
+        <member name="T:CloudApi.AliGenie.X1DeviceProperties.DrectionPropertieAndAction">
+            <summary>
+            方向属性
+            </summary>
+        </member>
+        <member name="T:CloudApi.AliGenie.X1DeviceProperties.EffluentPropertieAndAction">
+            <summary>
+            出水功能属性
+            </summary>
+        </member>
+        <member name="T:CloudApi.AliGenie.X1DeviceProperties.LefttimePropertieAndAction">
+            <summary>
+            剩余时间属性
+            </summary>
+        </member>
+        <member name="T:CloudApi.AliGenie.X1DeviceProperties.ModePropertieAndAction">
+            <summary>
+            模式属性
+            </summary>
+        </member>
+        <member name="T:CloudApi.AliGenie.X1DeviceProperties.OnlinestatePropertieAndAction">
+            <summary>
+            设备在线状态 属性
+            </summary>
+        </member>
+        <member name="T:CloudApi.AliGenie.X1DeviceProperties.RemotestatusPropertieAndAction">
+            <summary>
+            远程控制状态
+            </summary>
+        </member>
+        <member name="T:CloudApi.AliGenie.X1DeviceProperties.TVChannelPropertieAndAction">
+            <summary>
+            电视频道属性
+            </summary>
+        </member>
+        <member name="T:CloudApi.AliGenie.X1DeviceProperties.ColorPropertieAndAction">
+            <summary>
+            颜色属性
+            </summary>
+        </member>
+        <member name="T:CloudApi.AliGenie.X1DeviceProperties.DevicePropertiesAndAction">
+            <summary>
+            设备属性
+            </summary>
+        </member>
+        <member name="T:CloudApi.AliGenie.X1DeviceProperties.FogPropertieAndAction">
+            <summary>
+            雾量属性
+            </summary>
+        </member>
+        <member name="T:CloudApi.AliGenie.X1DeviceProperties.HumidityPropertieAndAction">
+            <summary>
+            湿度属性
+            </summary>
+        </member>
+        <member name="T:CloudApi.AliGenie.X1DeviceProperties.pm25PropertieAndAction">
+            <summary>
+            pm2.5属性
+            </summary>
+        </member>
+        <member name="T:CloudApi.AliGenie.X1DeviceProperties.PowerStatePropertieAndAction">
+            <summary>
+            电源状态属性
+            </summary>
+        </member>
+        <member name="T:CloudApi.AliGenie.X1DeviceProperties.TemperaturePropertieAndAction">
+            <summary>
+            温度属性
+            </summary>
+        </member>
+        <member name="T:CloudApi.AliGenie.X1DeviceProperties.TVNumberPropertieAndAction">
+            <summary>
+            电视频道号 属性
+            </summary>
+        </member>
+        <member name="T:CloudApi.AliGenie.X1DeviceProperties.WindspeedPropertieAndAction">
+            <summary>
+            风速 属性
+            </summary>
+        </member>
+        <member name="M:CloudApi.AliGenie.X1DeviceTypeHelper.GetAliGenieX1SupportType(System.String)">
+            <summary>
+            类型转换方法
+            用于将自家设备类型 转换成 天猫对应的设备类型
+            </summary>
+            <param name="devType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.AliGenie.X1DeviceTypeHelper.GetAliGenieX1DevName(System.String)">
+            <summary>
+            根据设备类型获取默认名称
+            此方法自行处理
+            </summary>
+            <param name="devType"></param>
+            <returns></returns>
+        </member>
+        <member name="P:CloudApi.AliGenie.X1CommonModel.X1Head.namespace">
+            <summary>
+            header协议中的namespace列表
+            AliGenie.Iot.Device.Discovery	设备发现
+            AliGenie.Iot.Device.Control 设备控制
+            AliGenie.Iot.Device.Query 设备属性查询
+            </summary>
+        </member>
+        <member name="P:CloudApi.AliGenie.X1CommonModel.X1Head.name">
+            <summary>
+            header协议中name列表
+             设备发现类（与AliGenie.Iot.Device.Discovery对应）
+             操作类（与AliGenie.Iot.Device.Control对应）
+             查询类（与AliGenie.Iot.Device.Query对应）
+            </summary>
+        </member>
+        <member name="P:CloudApi.AliGenie.X1CommonModel.X1Head.payLoadVersion">
+            <summary>
+            payload 的版本,目前版本为 1
+            </summary>
+        </member>
+        <member name="P:CloudApi.AliGenie.X1CommonModel.X1Head.messageId">
+            <summary>
+            用于跟踪请求
+            </summary>
+        </member>
+        <member name="T:CloudApi.AliGenie.X1Handle.DevControlHandle">
+            <summary>
+            设备控制 处理类
+            </summary>
+        </member>
+        <member name="T:CloudApi.AliGenie.X1Handle.DeviceDiscoverHandle">
+            <summary>
+            设备发现 处理类
+            </summary>
+        </member>
+        <member name="T:CloudApi.AliGenie.X1Handle.DevicePropertyQueryHandle">
+            <summary>
+            设备属性查询 处理类
+            </summary>
+        </member>
+        <member name="T:CloudApi.AliGenie.X1ReceviceModel.X1ReceivePayload">
+            <summary>
+            接收时的 Payload
+            </summary>
+        </member>
+        <member name="P:CloudApi.AliGenie.X1ReceviceModel.X1ReceivePayload.accessToken">
+            <summary>
+            授权码 固定有的
+            </summary>
+        </member>
+        <member name="P:CloudApi.AliGenie.X1ReceviceModel.X1ReceivePayload.deviceId">
+            <summary>
+            设备Id 操作设备、查询设备属性时会有
+            </summary>
+        </member>
+        <member name="P:CloudApi.AliGenie.X1ReceviceModel.X1ReceivePayload.deviceType">
+            <summary>
+            设备类型 操作设备、查询设备属性时会有
+            </summary>
+        </member>
+        <member name="P:CloudApi.AliGenie.X1ReceviceModel.X1ReceivePayload.attribute">
+            <summary>
+            属性值，操作设备时会有
+            </summary>
+        </member>
+        <member name="P:CloudApi.AliGenie.X1ReceviceModel.X1ReceivePayload.value">
+            <summary>
+            值 操作设备时会有
+            </summary>
+        </member>
+        <member name="P:CloudApi.AliGenie.X1ReceviceModel.X1ReceivePayload.extensions">
+            <summary>
+             额外属性  操作设备、查询设备属性时会有
+            </summary>
+        </member>
+        <member name="P:CloudApi.AliGenie.X1ReceviceModel.X1ReceiveObj.header">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CloudApi.AliGenie.X1ReceviceModel.X1ReceiveObj.payload">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CloudApi.AliGenie.X1ReturnModel.DeviceDiscover.DeviceDiscoverPayload">
+            <summary>
+            设备发现 返回的 Payload
+            </summary>
+        </member>
+        <member name="P:CloudApi.AliGenie.X1ReturnModel.DeviceDiscover.DeviceDiscoverPayload.devices">
+            <summary>
+            设备列表
+            </summary>
+        </member>
+        <member name="T:CloudApi.AliGenie.X1ReturnModel.DeviceOper.X1ReturnDeviceOperSuccesspPayload">
+            <summary>
+            设备操作成功返回的 Payload
+            </summary>
+        </member>
+        <member name="P:CloudApi.AliGenie.X1ReturnModel.DeviceOper.X1ReturnDeviceOperSuccesspPayload.deviceId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CloudApi.AliGenie.X1ReturnModel.DeviceOper.X1ReturnDeviceControlPayload">
+            <summary>
+            设备控制结果返回的 Payload
+            </summary>
+        </member>
+        <member name="P:CloudApi.AliGenie.X1ReturnModel.DeviceOper.X1ReturnDeviceControlPayload.payload">
+            <summary>
+            直接以 objcet 去处理类的不同
+            </summary>
+        </member>
+        <member name="T:CloudApi.AliGenie.X1ReturnModel.DeviceDiscover.X1ReturnDeviceDiscoverModel">
+            <summary>
+            设备发现返回的类
+            </summary>
+        </member>
+        <member name="P:CloudApi.AliGenie.X1ReturnModel.DeviceDiscover.X1ReturnDeviceDiscoverModel.payload">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CloudApi.AliGenie.X1ReturnModel.DeviceDiscover.X1ReturnDeviceModel">
+            <summary>
+            返回 阿里开发平台的 设备类
+            </summary>
+        </member>
+        <member name="P:CloudApi.AliGenie.X1ReturnModel.DeviceDiscover.X1ReturnDeviceModel.deviceId">
+            <summary>
+            设备Id
+            </summary>
+        </member>
+        <member name="P:CloudApi.AliGenie.X1ReturnModel.DeviceDiscover.X1ReturnDeviceModel.deviceName">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:CloudApi.AliGenie.X1ReturnModel.DeviceDiscover.X1ReturnDeviceModel.deviceType">
+            <summary>
+            设备类型
+            </summary>
+        </member>
+        <member name="P:CloudApi.AliGenie.X1ReturnModel.DeviceDiscover.X1ReturnDeviceModel.zone">
+            <summary>
+            位置
+            </summary>
+        </member>
+        <member name="P:CloudApi.AliGenie.X1ReturnModel.DeviceDiscover.X1ReturnDeviceModel.brand">
+            <summary>
+            品牌
+            </summary>
+        </member>
+        <member name="P:CloudApi.AliGenie.X1ReturnModel.DeviceDiscover.X1ReturnDeviceModel.model">
+            <summary>
+            型号
+            </summary>
+        </member>
+        <member name="P:CloudApi.AliGenie.X1ReturnModel.DeviceDiscover.X1ReturnDeviceModel.icon">
+            <summary>
+            产品icon(https协议的url链接),像素最好160*160 以免在app显示模糊
+            </summary>
+        </member>
+        <member name="P:CloudApi.AliGenie.X1ReturnModel.DeviceDiscover.X1ReturnDeviceModel.properties">
+            <summary>
+            返回当前设备支持的属性状态列表，产品支持的属性列表参考2.3.2章节
+            </summary>
+        </member>
+        <member name="P:CloudApi.AliGenie.X1ReturnModel.DeviceDiscover.X1ReturnDeviceModel.actions">
+            <summary>
+            产品支持的操作(注：包括支持的查询操作) ,详情参照1.3.2和1.3.3章节
+            </summary>
+        </member>
+        <member name="P:CloudApi.AliGenie.X1ReturnModel.DeviceDiscover.X1ReturnDeviceModel.extensions">
+            <summary>
+            产品扩展属性,为空返回null或者不返回该字段
+            </summary>
+        </member>
+        <member name="T:CloudApi.AliGenie.X1ReturnModel.DeviceOper.X1ReturnDeviceOperErrorPayload">
+            <summary>
+            设备操作失败结果
+            </summary>
+        </member>
+        <member name="P:CloudApi.AliGenie.X1ReturnModel.DeviceOper.X1ReturnDeviceOperErrorPayload.errorCode">
+            <summary>
+            错误码
+            </summary>
+        </member>
+        <member name="P:CloudApi.AliGenie.X1ReturnModel.DeviceOper.X1ReturnDeviceOperErrorPayload.message">
+            <summary>
+            错误描述
+            </summary>
+        </member>
+        <member name="T:CloudApi.AliGenie.X1ReturnModel.X1ReturnProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CloudApi.Areas.HelpPage.ApiDescriptionExtensions.GetFriendlyId(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Generates an URI-friendly ID for the <see cref="T:System.Web.Http.Description.ApiDescription"/>. E.g. "Get-Values-id_name" instead of "GetValues/{id}?name={name}"
+            </summary>
+            <param name="description">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The ID as a string.</returns>
+        </member>
+        <member name="T:CloudApi.Areas.HelpPage.HelpPageConfig">
+            <summary>
+            Use this class to customize the Help Page.
+            For example you can set a custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> to supply the documentation
+            or you can provide the samples for the requests/responses.
+            </summary>
+        </member>
+        <member name="T:CloudApi.Areas.HelpPage.Controllers.HelpController">
+            <summary>
+            The controller that will handle requests for the help page.
+            </summary>
+        </member>
+        <member name="M:CloudApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetDocumentationProvider(System.Web.Http.HttpConfiguration,System.Web.Http.Description.IDocumentationProvider)">
+            <summary>
+            Sets the documentation provider for help page.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="documentationProvider">The documentation provider.</param>
+        </member>
+        <member name="M:CloudApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleObjects(System.Web.Http.HttpConfiguration,System.Collections.Generic.IDictionary{System.Type,System.Object})">
+            <summary>
+            Sets the objects that will be used by the formatters to produce sample requests/responses.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleObjects">The sample objects.</param>
+        </member>
+        <member name="M:CloudApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type and action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:CloudApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample request directly for the specified media type and action with parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:CloudApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type of the action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:CloudApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample response directly for the specified media type of the action with specific parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:CloudApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Sets the sample directly for all actions with the specified type and media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The parameter type or return type of an action.</param>
+        </member>
+        <member name="M:CloudApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action. 
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:CloudApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action. 
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:CloudApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action. 
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:CloudApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action. 
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:CloudApi.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <returns>The help page sample generator.</returns>
+        </member>
+        <member name="M:CloudApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration,CloudApi.Areas.HelpPage.HelpPageSampleGenerator)">
+            <summary>
+            Sets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleGenerator">The help page sample generator.</param>
+        </member>
+        <member name="M:CloudApi.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageApiModel(System.Web.Http.HttpConfiguration,System.String)">
+            <summary>
+            Gets the model that represents an API displayed on the help page. The model is initialized on the first call and cached for subsequent calls.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="apiDescriptionId">The <see cref="T:System.Web.Http.Description.ApiDescription"/> ID.</param>
+            <returns>
+            An <see cref="T:CloudApi.Areas.HelpPage.Models.HelpPageApiModel"/>
+            </returns>
+        </member>
+        <member name="T:CloudApi.Areas.HelpPage.Models.HelpPageApiModel">
+            <summary>
+            The model that represents an API displayed on the help page.
+            </summary>
+        </member>
+        <member name="M:CloudApi.Areas.HelpPage.Models.HelpPageApiModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudApi.Areas.HelpPage.Models.HelpPageApiModel"/> class.
+            </summary>
+        </member>
+        <member name="P:CloudApi.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription">
+            <summary>
+            Gets or sets the <see cref="P:CloudApi.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription"/> that describes the API.
+            </summary>
+        </member>
+        <member name="P:CloudApi.Areas.HelpPage.Models.HelpPageApiModel.SampleRequests">
+            <summary>
+            Gets the sample requests associated with the API.
+            </summary>
+        </member>
+        <member name="P:CloudApi.Areas.HelpPage.Models.HelpPageApiModel.SampleResponses">
+            <summary>
+            Gets the sample responses associated with the API.
+            </summary>
+        </member>
+        <member name="P:CloudApi.Areas.HelpPage.Models.HelpPageApiModel.ErrorMessages">
+            <summary>
+            Gets the error messages associated with this model.
+            </summary>
+        </member>
+        <member name="T:CloudApi.Areas.HelpPage.HelpPageSampleGenerator">
+            <summary>
+            This class will generate the samples for the help page.
+            </summary>
+        </member>
+        <member name="M:CloudApi.Areas.HelpPage.HelpPageSampleGenerator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudApi.Areas.HelpPage.HelpPageSampleGenerator"/> class.
+            </summary>
+        </member>
+        <member name="M:CloudApi.Areas.HelpPage.HelpPageSampleGenerator.GetSampleRequests(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the request body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:CloudApi.Areas.HelpPage.HelpPageSampleGenerator.GetSampleResponses(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the response body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:CloudApi.Areas.HelpPage.HelpPageSampleGenerator.GetSample(System.Web.Http.Description.ApiDescription,CloudApi.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Gets the request or response body samples.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:CloudApi.Areas.HelpPage.HelpPageSampleGenerator.GetActionSample(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Type,System.Net.Http.Formatting.MediaTypeFormatter,System.Net.Http.Headers.MediaTypeHeaderValue,CloudApi.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Search for samples that are provided directly through <see cref="P:CloudApi.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples"/>.
+            </summary>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="type">The CLR type.</param>
+            <param name="formatter">The formatter.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The sample that matches the parameters.</returns>
+        </member>
+        <member name="M:CloudApi.Areas.HelpPage.HelpPageSampleGenerator.GetSampleObject(System.Type)">
+            <summary>
+            Gets the sample object that will be serialized by the formatters. 
+            First, it will look at the <see cref="P:CloudApi.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects"/>. If no sample object is found, it will try to create one using <see cref="T:CloudApi.Areas.HelpPage.ObjectGenerator"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>The sample object.</returns>
+        </member>
+        <member name="M:CloudApi.Areas.HelpPage.HelpPageSampleGenerator.ResolveType(System.Web.Http.Description.ApiDescription,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},CloudApi.Areas.HelpPage.SampleDirection,System.Collections.ObjectModel.Collection{System.Net.Http.Formatting.MediaTypeFormatter}@)">
+            <summary>
+            Resolves the type of the action parameter or return value when <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/> is used.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or a response.</param>
+            <param name="formatters">The formatters.</param>
+        </member>
+        <member name="M:CloudApi.Areas.HelpPage.HelpPageSampleGenerator.WriteSampleObjectUsingFormatter(System.Net.Http.Formatting.MediaTypeFormatter,System.Object,System.Type,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Writes the sample object using formatter.
+            </summary>
+            <param name="formatter">The formatter.</param>
+            <param name="value">The value.</param>
+            <param name="type">The type.</param>
+            <param name="mediaType">Type of the media.</param>
+            <returns></returns>
+        </member>
+        <member name="P:CloudApi.Areas.HelpPage.HelpPageSampleGenerator.ActualHttpMessageTypes">
+            <summary>
+            Gets CLR types that are used as the content of <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/>.
+            </summary>
+        </member>
+        <member name="P:CloudApi.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples">
+            <summary>
+            Gets the objects that are used directly as samples for certain actions.
+            </summary>
+        </member>
+        <member name="P:CloudApi.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects">
+            <summary>
+            Gets the objects that are serialized as samples by the supported formatters.
+            </summary>
+        </member>
+        <member name="T:CloudApi.Areas.HelpPage.HelpPageSampleKey">
+            <summary>
+            This is used to identify the place where the sample should be applied.
+            </summary>
+        </member>
+        <member name="M:CloudApi.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Creates a new <see cref="T:CloudApi.Areas.HelpPage.HelpPageSampleKey"/> based on media type and CLR type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The CLR type.</param>
+        </member>
+        <member name="M:CloudApi.Areas.HelpPage.HelpPageSampleKey.#ctor(CloudApi.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:CloudApi.Areas.HelpPage.HelpPageSampleKey"/> based on <see cref="P:CloudApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="sampleDirection">The <see cref="P:CloudApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:CloudApi.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,CloudApi.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:CloudApi.Areas.HelpPage.HelpPageSampleKey"/> based on media type, <see cref="P:CloudApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The <see cref="P:CloudApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="P:CloudApi.Areas.HelpPage.HelpPageSampleKey.ControllerName">
+            <summary>
+            Gets the name of the controller.
+            </summary>
+            <value>
+            The name of the controller.
+            </value>
+        </member>
+        <member name="P:CloudApi.Areas.HelpPage.HelpPageSampleKey.ActionName">
+            <summary>
+            Gets the name of the action.
+            </summary>
+            <value>
+            The name of the action.
+            </value>
+        </member>
+        <member name="P:CloudApi.Areas.HelpPage.HelpPageSampleKey.MediaType">
+            <summary>
+            Gets the media type.
+            </summary>
+            <value>
+            The media type.
+            </value>
+        </member>
+        <member name="P:CloudApi.Areas.HelpPage.HelpPageSampleKey.ParameterNames">
+            <summary>
+            Gets the parameter names.
+            </summary>
+        </member>
+        <member name="P:CloudApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection">
+            <summary>
+            Gets the <see cref="P:CloudApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.
+            </summary>
+        </member>
+        <member name="T:CloudApi.Areas.HelpPage.ImageSample">
+            <summary>
+            This represents an image sample on the help page. There's a display template named ImageSample associated with this class.
+            </summary>
+        </member>
+        <member name="M:CloudApi.Areas.HelpPage.ImageSample.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudApi.Areas.HelpPage.ImageSample"/> class.
+            </summary>
+            <param name="src">The URL of an image.</param>
+        </member>
+        <member name="T:CloudApi.Areas.HelpPage.InvalidSample">
+            <summary>
+            This represents an invalid sample on the help page. There's a display template named InvalidSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:CloudApi.Areas.HelpPage.ObjectGenerator">
+            <summary>
+            This class will create an object of a given type and populate it with sample data.
+            </summary>
+        </member>
+        <member name="M:CloudApi.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)">
+            <summary>
+            Generates an object for a given type. The type needs to be public, have a public default constructor and settable public properties/fields. Currently it supports the following types:
+            Simple types: <see cref="T:System.Int32"/>, <see cref="T:System.String"/>, <see cref="T:System.Enum"/>, <see cref="T:System.DateTime"/>, <see cref="T:System.Uri"/>, etc.
+            Complex types: POCO types.
+            Nullables: <see cref="T:System.Nullable`1"/>.
+            Arrays: arrays of simple types or complex types.
+            Key value pairs: <see cref="T:System.Collections.Generic.KeyValuePair`2"/>
+            Tuples: <see cref="T:System.Tuple`1"/>, <see cref="T:System.Tuple`2"/>, etc
+            Dictionaries: <see cref="T:System.Collections.Generic.IDictionary`2"/> or anything deriving from <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            Collections: <see cref="T:System.Collections.Generic.IList`1"/>, <see cref="T:System.Collections.Generic.IEnumerable`1"/>, <see cref="T:System.Collections.Generic.ICollection`1"/>, <see cref="T:System.Collections.IList"/>, <see cref="T:System.Collections.IEnumerable"/>, <see cref="T:System.Collections.ICollection"/> or anything deriving from <see cref="T:System.Collections.Generic.ICollection`1"/> or <see cref="T:System.Collections.IList"/>.
+            Queryables: <see cref="T:System.Linq.IQueryable"/>, <see cref="T:System.Linq.IQueryable`1"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>An object of the given type.</returns>
+        </member>
+        <member name="T:CloudApi.Areas.HelpPage.SampleDirection">
+            <summary>
+            Indicates whether the sample is used for request or response
+            </summary>
+        </member>
+        <member name="T:CloudApi.Areas.HelpPage.TextSample">
+            <summary>
+            This represents a preformatted text sample on the help page. There's a display template named TextSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:CloudApi.Areas.HelpPage.XmlDocumentationProvider">
+            <summary>
+            A custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> that reads the API documentation from an XML documentation file.
+            </summary>
+        </member>
+        <member name="M:CloudApi.Areas.HelpPage.XmlDocumentationProvider.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudApi.Areas.HelpPage.XmlDocumentationProvider"/> class.
+            </summary>
+            <param name="documentPath">The physical path to XML document.</param>
+        </member>
+        <member name="T:CloudApi.Controllers.AliGenieController">
+            <summary>
+            天猫音箱相关
+            </summary>
+        </member>
+        <member name="M:CloudApi.Controllers.AliGenieController.ReceiveMsg(CloudApi.AliGenie.X1ReceviceModel.X1ReceiveObj)">
+            <summary>
+            天猫指令入口
+            </summary>
+            <param name="receiveObj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.Controllers.DuerOSController.ReceiveMsg(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            
+            </summary>
+            <param name="receiveObj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.Controllers.DuerOSController.Discove(CloudApi.Dueros.Models.CommonModel.CommonReceiveModel)">
+            <summary>
+            设备发现方法
+            </summary>
+            <param name="receiveObj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.Controllers.HomeController.Index">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.Controllers.HomeController.IndexLogin">
+            <summary>
+            登录页
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.Controllers.HomeController.Index2">
+            <summary>
+            用户输入登录之后的检验
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.Controllers.HomeController.TestToken">
+            <summary>
+            获取 access_token 的地址 (也可用于刷新access_token)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.Controllers.HomeController.TestReceive(CloudApi.AliGenie.X1ReceviceModel.X1ReceiveObj)">
+            <summary>
+            天猫指令入口
+            </summary>
+            <param name="receiveObj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CloudApi.Dueros.Models.CommonModel.AttributeModel">
+            <summary>
+            属性 参考 https://dueros.baidu.com/didp/doc/dueros-bot-platform/dbp-smart-home/protocol/attributes.md
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.CommonModel.AttributeModel.name">
+            <summary>
+            属性名称
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.CommonModel.AttributeModel.value">
+            <summary>
+            属性值，支持多种json类型。
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.CommonModel.AttributeModel.scale">
+            <summary>
+            属性值的单位名称，支持数字、字母和下划线，长度不能超过128个字符。
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.CommonModel.AttributeModel.timestampOfSample">
+            <summary>
+            属性值取样的时间戳，单位是秒。
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.CommonModel.AttributeModel.uncertaintyInMilliseconds">
+            <summary>
+            属性值取样的时间误差，单位是ms。
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.CommonModel.AttributeModel.legalValue">
+            <summary>
+            属性取值的合法范围，是字符串类型。
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.CommonModel.Head.namespace">
+            <summary>
+            header协议中的namespace列表
+            DiscoverAppliancesRequest	设备发现
+            TurnOnRequest 设备控制 具体值要去看文档...有点多
+            GetAirQualityIndexRequest 设备属性查询 具体值要去看文档...有点多
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.CommonModel.Head.name">
+            <summary>
+            header协议中name列表
+             设备发现类（与DuerOS.ConnectedHome.Discovery对应）
+             操作类（与DuerOS.ConnectedHome.Control对应）
+             查询类（与DuerOS.ConnectedHome.Query对应）
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.CommonModel.Head.payloadVersion">
+            <summary>
+            payload 的版本,目前版本为 1
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.CommonModel.Head.messageId">
+            <summary>
+            用于跟踪请求
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.ReturnModel.ChangeReportRequestModel.header">
+            <summary>
+            头
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.ReturnModel.ChangeReportRequestModel.payload">
+            <summary>
+            体
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.ReturnModel.DiscoveReturnModel.header">
+            <summary>
+            头
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.ReturnModel.DiscoveReturnModel.payload">
+            <summary>
+            内容体
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.ReturnModel.DiscoverPayload.discoveredAppliances">
+            <summary>
+            以对象数组返回客户关联设备云帐户的设备、场景。如客户关联帐户没有设备、场景则返回空数组。如果在发现过程中出现错误，字段值设置为null, 用户允许接入的最大的设备数量是300。
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.ReturnModel.DiscoverPayload.discoveredGroups">
+            <summary>
+            discoveredGroups 对象的数组，该对象包含可发现分组，与用户设备帐户相关联的。 如果没有与用户帐户关联的分组，此属性应包含一个空数组。 如果发生错误，该属性可以为空数组[]。阵列中允许的最大项目数量为10。
+            </summary>
+        </member>
+        <member name="T:CloudApi.Dueros.Models.ReturnModel.DiscoveredAppliance">
+            <summary>
+            设备或情景的类
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.ReturnModel.DiscoveredAppliance.actions">
+            <summary>
+            设备支持的操作类型数组
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.ReturnModel.DiscoveredAppliance.applianceTypes">
+            <summary>
+            设备类型，场景类型
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.ReturnModel.DiscoveredAppliance.additionalApplianceDetails">
+            <summary>
+            提供给设备云使用，存放设备或场景相关的附加信息，是键值对。DuerOS不了解或使用这些数据。该属性的内容不能超过5000字节。
+            此字段为自定义字段，可保存我们自己的东西
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.ReturnModel.DiscoveredAppliance.applianceId">
+            <summary>
+            设备ID
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.ReturnModel.DiscoveredAppliance.friendlyDescription">
+            <summary>
+            设备相关的描述，描述内容提需要提及设备厂商，使用场景及连接方式，长度不超过128个字符。
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.ReturnModel.DiscoveredAppliance.friendlyName">
+            <summary>
+            用户用来识别设备的名称。 是字符串类型，不能包含特殊字符和标点符号，长度不能超过128个字符。
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.ReturnModel.DiscoveredAppliance.isReachable">
+            <summary>
+            是否可用
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.ReturnModel.DiscoveredAppliance.manufacturerName">
+            <summary>
+            设备制造商的名称
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.ReturnModel.DiscoveredAppliance.modelName">
+            <summary>
+            设备型号名称，是字符串类型，长度不能超过128个字符。
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.ReturnModel.DiscoveredAppliance.version">
+            <summary>
+            设备版本号
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.ReturnModel.DiscoveredAppliance.attributes">
+            <summary>
+            设备的属性信息。当设备没有属性信息时，协议中不需要传入该字段。每个设备允许同步的最大的属性数量是10
+            </summary>
+        </member>
+        <member name="T:CloudApi.Dueros.Models.ReturnModel.Attribute">
+            <summary>
+            特征类
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.ReturnModel.Attribute.name">
+            <summary>
+            属性名称，支持数字、字母和下划线，长度不能超过128个字符。
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.ReturnModel.Attribute.value">
+            <summary>
+            属性值，支持多种json类型。	
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.ReturnModel.Attribute.scale">
+            <summary>
+            属性值的单位名称，支持数字、字母和下划线，长度不能超过128个字符。
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.ReturnModel.Attribute.timestampOfSample">
+            <summary>
+            属性值取样的时间戳，单位是秒
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.ReturnModel.Attribute.uncertaintyInMilliseconds">
+            <summary>
+            属性值取样的时间误差，单位是ms。如果设备使用的是轮询时间间隔的取样方式，那么uncertaintyInMilliseconds就等于时间间隔。如温度传感器每1秒取样1次，那么uncertaintyInMilliseconds的值就是1000。
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.ReturnModel.Attribute.legalValue">
+            <summary>
+            属性取值的合法范围，是字符串类型。字符串中包含的值，可以是单个值："INTEGER"，表示合法值是整数；"DOUBLE"，表示合法值是浮点数；"STRING"，表示合法值是字符串；"BOOLEAN"，表示合法值是布尔值；"OBJECT"，表示合法值是json对象；可以是集合： "(A1, B1, C1, D1)"，表示值可以取这些字符串；也可以是数字范围："[from: to]"，表示合法值是处于对应的数值范围内。
+            </summary>
+        </member>
+        <member name="T:CloudApi.Dueros.Models.ReturnModel.DiscoveredGroup">
+            <summary>
+            发现分组类
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.ReturnModel.DiscoveredGroup.groupName">
+            <summary>
+            用户用来识别分组的名称, 不应包含特殊字符或标点符号，长度不超过20字符。
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.ReturnModel.DiscoveredGroup.applianceIds">
+            <summary>
+            分组所包含设备ID的数组，要求设备ID必须是已经发现的设备中的ID，否则会同步失败，每个分组设备ID数量不超过50。
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.ReturnModel.DiscoveredGroup.groupNotes">
+            <summary>
+            分组备注信息，不能超过128个字符。
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.ReturnModel.DiscoveredGroup.additionalGroupDetails">
+            <summary>
+            提供给技能使用的分组相关的附加信息的键值对。该属性的内容不能超过2000字符。而且DuerOS也不了解或使用这些数据。
+            </summary>
+        </member>
+        <member name="T:CloudApi.Dueros.Models.ReturnModel.Payload.CommonPayload">
+            <summary>
+            通用的消息体类
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.ReturnModel.Payload.CommonPayload.attributes">
+            <summary>
+            状态集合
+            </summary>
+        </member>
+        <member name="T:CloudApi.Dueros.Models.ReturnModel.ReportStateResponseReturnModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.ReturnModel.ReportStateResponseReturnModel.header">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CloudApi.Dueros.Models.ReturnModel.ReportStateResponseReturnModel.payload">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CloudApi.Dueros.ThreadCheckModel.ThreadGetMqttMsg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CloudApi.Dueros.ThreadCheckModel.ThreadGetMqttMsg.GetMqttData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.UserRegRet">
+            <summary>
+            用户注册返回 类型
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.AppInfoDataRet">
+            <summary>
+             App信息返回基类
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.UserRegRet.sessionID">
+            <summary>
+            会话标识
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.UserRegRet.errcode">
+            <summary>
+            0: 表示成功， 其他表示失败
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.UserRegRet.errmsg">
+            <summary>
+            错误内容
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.UserLoginRet">
+            <summary>
+            用户登陆返回 类型
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.UserLoginRet.errcode">
+            <summary>
+            0: 表示成功， 其他表示失败
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.InstStruct">
+            <summary>
+            设备状态结构 
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.ActionInfoRet">
+            <summary>
+            App 指令 信息返回 类型
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.ActionInfoRet.devStatus">
+            <summary>
+            设备状态 A002: 离线失联， A003：在线等待 A004: 在线负载平衡， A005:在线负载波动
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.UniteDevice">
+            <summary>
+            设备组合信息
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.DevicelistRet">
+            <summary>
+            用户设备清单 信息返回 类型
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.DevicelistRet.errcode">
+            <summary>
+            0: 表示成功， 其他表示失败
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.DevicelistRet.errmsg">
+            <summary>
+            错误描述
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.HostListRet">
+            <summary>
+            用户主机列表
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.HostListRet.errcode">
+            <summary>
+            0: 表示成功， 其他表示失败
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.HostListRet.errmsg">
+            <summary>
+            错误描述
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.HostMd.HX">
+            <summary>
+            户型
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.HostMd2.HX">
+            <summary>
+            户型
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.DeviceArealistRet.errcode">
+            <summary>
+            0: 表示成功， 其他表示失败
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.DeviceArealistRet.errmsg">
+            <summary>
+            错误描述
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.DeviceAreaAlllistRet">
+            <summary>
+            所有展开的开关的列表
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.DeviceAreaAlllistRet.errcode">
+            <summary>
+            0: 表示成功， 其他表示失败
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.DeviceAreaAlllistRet.errmsg">
+            <summary>
+            错误描述
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.AreaDeviceData.devOwnerID">
+            <summary>
+            设备所有人标识
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.AreaDeviceData.addNetTime">
+            <summary>
+            入网时间
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.AreaDeviceData.devOwner">
+            <summary>
+            设备所有人标识： 0表示所以人，1表示使用人
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.AreaDeviceData.devChildID">
+            <summary>
+            子设备ID
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.AreaChildDeviceData.devName">
+            <summary>
+            当前设备名称
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.AreaChildDeviceData.devOwnerID">
+            <summary>
+            设备所有人标识
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.AreaChildDeviceData.addNetTime">
+            <summary>
+            入网时间
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.AreaChildDeviceData.devOwner">
+            <summary>
+            设备所有人标识： 0表示所以人，1表示使用人
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.AreaChildDeviceData.ParentName">
+            <summary>
+            父级设备名称
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.AreaChildDeviceData.devChildID">
+            <summary>
+            子设备ID
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.AreaChildDeviceData.IsPush">
+            <summary>
+            是否推送
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.AreaChildDeviceData.IsDeskTop">
+            <summary>
+            是否显示在首页
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.HostDevAreaAlllistRet">
+            <summary>
+            主机 区域下 所有 灯光类 设备的列表
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.DeviceData">
+            <summary>
+            设备功能描述
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.DeviceData.devOwnerID">
+            <summary>
+            设备所有人标识
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.DeviceData.addNetTime">
+            <summary>
+            入网时间
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.DeviceData.devOwner">
+            <summary>
+            设备所有人标识： 0表示所以人，1表示使用人
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.DeviceData.devChildID">
+            <summary>
+            子设备ID
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.FeatuData">
+            <summary>
+            设备功能列表 返回类型
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.FeatuData.operCode">
+            <summary>
+            设备功能 操作码
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.FeatuData.devFeatuName">
+            <summary>
+            设备功能名
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.DeviceFeatuRet">
+            <summary>
+            设备功能列表 返回类型
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.DeviceFeatuRet.errcode">
+            <summary>
+            0: 表示成功， 其他表示失败
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.DeviceFeatuRet.errmsg">
+            <summary>
+            错误描述
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.DeviceStateRet.errcode">
+            <summary>
+            0: 表示成功， 其他表示失败
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.DeviceStateRet.errmsg">
+            <summary>
+            错误描述
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.InfraFixCodeRet">
+            <summary>
+            红外固定码
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.InfraTypeRet">
+            <summary>
+            取红外类型 返回
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.InfraTypeRet.errmsg">
+            <summary>
+            错误描述
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.DeviceQryRet">
+            <summary>
+            用户查询 单个设备 信息返回 类型
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.DeviceQryRet.devStatus">
+            <summary>
+            设备状态 A002: 离线失联， A003：在线等待 A004: 在线负载平衡， A005:在线负载波动
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.DeviceQryRet.instStruct">
+            <summary>
+            设备状态结构描述
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.DevTypeListRet">
+            <summary>
+            设备类型清单返回类型
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.InstList">
+            <summary>
+            指令 与说明
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.ActionIDList">
+            <summary>
+            业务指令列表
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.DeviceBindRet">
+            <summary>
+            捆绑设备 返回信息类
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.DeviceBindRet.errcode">
+            <summary>
+            0: 表示成功， 其他表示失败
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.DeviceBindRet.errmsg">
+            <summary>
+            错误内容
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.DeviceRemoveRet">
+            <summary>
+            设备删除 返回 类
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.DeviceRemoveRet.errcode">
+            <summary>
+            0: 表示成功， 其他表示失败
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.DeviceRemoveRet.errmsg">
+            <summary>
+            错误内容
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.DeviceChangeTypeRet">
+            <summary>
+            设备类型变更 返回类
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.DeviceChangeTypeRet.errcode">
+            <summary>
+            0: 表示成功， 其他表示失败
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.DeviceChangeTypeRet.errmsg">
+            <summary>
+            错误内容
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.MqttCMD3001Ret.CMD">
+            <summary>
+            指令标识
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.CMD3001Ret.CMD">
+            <summary>
+            指令标识
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.devTodoAction">
+            <summary>
+            指令具体动作  "devTodo":[{"actionID":"2","delay":"0","param":"","sub":[3]}]}",
+                          "devTodo":[{"actionID":"2","delay":"0","param":"","sub":[3]}]}",
+            </summary>
+            
+        </member>
+        <member name="P:CloudApi.Models.devTodoAction.param">
+            <summary>
+             动作的 参数值： 如 调温度：动作actionId: 801,  param: 温度值 如 26
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.AppOrderRet">
+            <summary>
+            App 指令 下发 到 wifi 返回
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.AppOrderRet.errcode">
+            <summary>
+             返回结果：0:成功， 其他失败
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.AppOrderRet.errmsg">
+            <summary>
+             结果描述 （一般是失败描述）
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.CommandRet">
+            <summary>
+            通用 返回类型
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.CommandRet.errcode">
+            <summary>
+             返回结果：0:成功， 其他失败
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.CommandRet.errmsg">
+            <summary>
+             结果描述 （一般是失败描述）
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.HostLocationRes2">
+            <summary>
+            不包含errmsg,errcode的主机服务类
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.HealthDataQryRet">
+            <summary>
+            用户键康数据查询返回
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.HealthParamQryRet">
+            <summary>
+            键康参数 返回类型
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.SessCountRet">
+            <summary>
+            统计类型返回
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.HealthDataStatRet">
+            <summary>
+            用户键康数据统计返回
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.StatData">
+            <summary>
+            统计数据类型
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.StatDataDeatail">
+            <summary>
+            统计数据类型 明细
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.UserInfoRet">
+            <summary>
+            用户信息返回类
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.UserInfoData">
+            <summary>
+            用户信息 数据集
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.FindPwdRet">
+            <summary>
+             找回密码
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.FindPwdRet.errcode">
+            <summary>
+             返回结果：0:成功， 其他失败
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.FindPwdRet.errmsg">
+            <summary>
+             结果描述 （一般是失败描述）
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.FindPwdRet.sessionID">
+            <summary>
+            生成的sessionID
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.HtmlOwnerDeviceList">
+            <summary>
+            用户下的设备清单 ： 查询用户所拥有设备列表，仅管理员属于用户，不包括分享和申请控制器的设备；
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.HtmlOwnerDevieData">
+            <summary>
+            html 5设备的信息：
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.HtmlAllDeviceList">
+            <summary>
+             html 用户 所有设备设备信息  包括所有人，分享，申请分享的
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.HtmlDevUserList">
+            <summary>
+             html 设备使用者信息
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.HtmlDevApplyUserList">
+            <summary>
+             html 设备使用者信息
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.DevUserCount">
+            <summary>
+            设备使用都统计信息
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.ServerUrlRet">
+            <summary>
+            服务器地址列表
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.DeviceUseStatRet">
+            <summary>
+             设备使用统计 返回类型
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.ExistsUseDevRet">
+            <summary>
+            检查用户是否有设备的控制权
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.InfraTypCodeDevRet">
+            <summary>
+             红外码 返回类型 格式 {"CMD":"IDB0","param":[{"delay":"0","actionID":"6","param":"016000FF00FF00FE01FF00FF002AD50000"}]}
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.GegValueRet">
+            <summary>
+            通用 返回类型
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.GegValueRet.errcode">
+            <summary>
+             返回结果：0:成功， 其他失败
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.GegValueRet.errmsg">
+            <summary>
+             结果描述 （一般是失败描述）
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.UserDeviceStateData">
+            <summary>
+            用户的设备状态数据
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.UserDeviceStateRet.errcode">
+            <summary>
+            0: 表示成功， 其他表示失败
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.UserDeviceStateRet.errmsg">
+            <summary>
+            错误描述
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.DeviceVersionRet">
+            <summary>
+            设备版本信息
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.DeviceTypeGroupRet">
+            <summary>
+            设备类型组返回结构---
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.UserBindCodeRet">
+            <summary>
+            设备类型变更 返回类
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.UserBindCodeRet.errcode">
+            <summary>
+            0: 表示成功， 其他表示失败
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.UserBindCodeRet.errmsg">
+            <summary>
+            错误内容
+            </summary>
+        </member>
+        <member name="T:CloudApi.Models.IntelligentHostCacheModel">
+            <summary>
+            缓存用户的授权信息类
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.IntelligentHostCacheModel.HostId">
+            <summary>
+            网关ID
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.IntelligentHostCacheModel._hostId">
+            <summary>
+            网关ID
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.IntelligentHostCacheModel.AccountId">
+            <summary>
+            账号
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.IntelligentHostCacheModel.Pwd">
+            <summary>
+            授权的密码
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.IntelligentHostCacheModel.SessionId">
+            <summary>
+            网关登录标识
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.IntelligentHostCacheModel.SessionCacheTime">
+            <summary>
+            网关登录标识时间
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.IntelligentHostCacheModel.RefreshToken">
+            <summary>
+            刷新token
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.IntelligentHostCacheModel.AccessToken">
+            <summary>
+            授权码
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.IntelligentHostCacheModel.ClientId">
+            <summary>
+            授权ClientId
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.IntelligentHostCacheModel.OpenUid">
+            <summary>
+            被授权的百度账号开放ID，与设备云账号一一对应。
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.IntelligentHostCacheModel.TokenTimeStamp">
+            <summary>
+            授权的时间点
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.IntelligentHostCacheModel.LastRefreshToken">
+            <summary>
+            上一次的token
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.FirstAuthCacheModel.HostId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.FirstAuthCacheModel.SessionId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.FirstAuthCacheModel.AccountId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.FirstAuthCacheModel.Password">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.FirstAuthCacheModel.ClientId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CloudApi.Models.FirstAuthCacheModel.SessionCacheTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CloudApi.Providers.OpenAuthorizationCodeProvider.Create(Microsoft.Owin.Security.Infrastructure.AuthenticationTokenCreateContext)">
+            <summary>
+            生成 authorization_code
+            </summary>
+        </member>
+        <member name="M:CloudApi.Providers.OpenAuthorizationCodeProvider.Receive(Microsoft.Owin.Security.Infrastructure.AuthenticationTokenReceiveContext)">
+            <summary>
+            由 authorization_code 解析成 access_token
+            </summary>
+        </member>
+        <member name="M:CloudApi.Providers.OpenAuthorizationServerProvider.ValidateClientAuthentication(Microsoft.Owin.Security.OAuth.OAuthValidateClientAuthenticationContext)">
+            <summary>
+            验证 client 信息
+            </summary>
+        </member>
+        <member name="M:CloudApi.Providers.OpenAuthorizationServerProvider.GrantClientCredentials(Microsoft.Owin.Security.OAuth.OAuthGrantClientCredentialsContext)">
+            <summary>
+            生成 access_token（client credentials 授权方式）
+            </summary>
+        </member>
+        <member name="M:CloudApi.Providers.OpenAuthorizationServerProvider.GrantResourceOwnerCredentials(Microsoft.Owin.Security.OAuth.OAuthGrantResourceOwnerCredentialsContext)">
+            <summary>
+            生成 access_token（resource owner password credentials 授权方式） 这是输入账号密码的方式直接获取的
+            </summary>
+        </member>
+        <member name="M:CloudApi.Providers.OpenAuthorizationServerProvider.AuthorizeEndpoint(Microsoft.Owin.Security.OAuth.OAuthAuthorizeEndpointContext)">
+            <summary>
+            生成 authorization_code（authorization code 授权方式）、生成 access_token （implicit 授权模式）
+            </summary>
+        </member>
+        <member name="M:CloudApi.Providers.OpenAuthorizationServerProvider.ValidateAuthorizeRequest(Microsoft.Owin.Security.OAuth.OAuthValidateAuthorizeRequestContext)">
+            <summary>
+            验证 authorization_code 的请求
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.Providers.OpenAuthorizationServerProvider.ValidateClientRedirectUri(Microsoft.Owin.Security.OAuth.OAuthValidateClientRedirectUriContext)">
+            <summary>
+            验证 redirect_uri
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.Providers.OpenAuthorizationServerProvider.ValidateTokenRequest(Microsoft.Owin.Security.OAuth.OAuthValidateTokenRequestContext)">
+            <summary>
+            验证 access_token 的请求
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.Providers.OpenRefreshTokenProvider.Create(Microsoft.Owin.Security.Infrastructure.AuthenticationTokenCreateContext)">
+            <summary>
+            生成 refresh_token
+            </summary>
+        </member>
+        <member name="M:CloudApi.Providers.OpenRefreshTokenProvider.Receive(Microsoft.Owin.Security.Infrastructure.AuthenticationTokenReceiveContext)">
+            <summary>
+            由 refresh_token 解析成 access_token
+            </summary>
+        </member>
+        <member name="T:CloudApi.Providers.RedisCacheSaveThread">
+            <summary>
+            线程，定时去保存状态到Redis中。以便后续回收IIS的时候，从Redis加载缓存
+            </summary>
+        </member>
+        <member name="F:CloudApi.ToolHelper.CacheData.OperLogController">
+            <summary>
+            输出操作日志的：controller值
+            </summary>
+        </member>
+        <member name="F:CloudApi.ToolHelper.CacheData.OperLogAction">
+            <summary>
+            输出操作日志的： action值
+            </summary>
+        </member>
+        <member name="F:CloudApi.ToolHelper.CacheData._OperLogLock">
+            <summary>
+            输出操作日志的锁
+            </summary>
+        </member>
+        <member name="F:CloudApi.ToolHelper.CacheData.SysParamsCacheData">
+            <summary>
+            系统参数配置缓存
+            </summary>
+        </member>
+        <member name="F:CloudApi.ToolHelper.CacheData.firstAuthCacheModel">
+            <summary>
+            授权账号密码数据缓存
+            </summary>
+        </member>
+        <member name="M:CloudApi.ToolHelper.CacheData.SetFirstAuthCache(System.String,CloudApi.Models.FirstAuthCacheModel)">
+            <summary>
+            设置授权账号密码授权数据
+            </summary>
+            <param name="code"></param>
+            <param name="model"></param>
+        </member>
+        <member name="M:CloudApi.ToolHelper.CacheData.GetFirstAuthCache(System.String)">
+            <summary>
+            获取授权账号密码授权的数据
+            </summary>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.ToolHelper.CacheData.SetOpenUid(System.String,CloudApi.Models.IntelligentHostCacheModel,System.String)">
+            <summary>
+            设置小度的 OpenUid
+            </summary>
+            <param name="accessToken"></param>
+            <param name="model"></param>
+            <param name="openUid"></param>
+        </member>
+        <member name="M:CloudApi.ToolHelper.CacheData.SetAccessTokenCache(System.String,CloudApi.Models.IntelligentHostCacheModel)">
+            <summary>
+            设置 accessToken 的缓存
+            </summary>
+            <param name="accessToken"></param>
+            <param name="model"></param>
+        </member>
+        <member name="M:CloudApi.ToolHelper.CacheData.GetAccessTokenByOldRefreshToken(System.String)">
+            <summary>
+            根据旧的 refreshToken 获取新的 token 信息
+            </summary>
+            <param name="oldRefreshToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.ToolHelper.CacheData.GetAccessTokenCache(System.String)">
+            <summary>
+            根据 accessToken 获取缓存数据
+            </summary>
+            <param name="accessToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.ToolHelper.CacheData.ReSetAccessTokenCache(System.String,System.String,System.String)">
+            <summary>
+            刷新 token 时，重设缓存，将移除旧缓存
+            </summary>
+            <param name="refreshToken"></param>
+            <param name="newAccessToken"></param>
+            <param name="newRefreshToken"></param>
+        </member>
+        <member name="M:CloudApi.ToolHelper.CacheData.SetOperControllerAction(System.String,System.String)">
+            <summary>
+            设置缓存中的控制器方法
+            </summary>
+            <param name="_controller"></param>
+            <param name="_action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.ToolHelper.CacheData.GetOperControllerAction(System.String@)">
+            <summary>
+            获取缓存中的控制器方法
+            </summary>
+            <param name="_action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.ToolHelper.CacheData.LoadSysParamsCacheData">
+            <summary>
+            加载系统配置参数
+            </summary>
+        </member>
+        <member name="M:CloudApi.ToolHelper.CacheData.GetSysParamValue(System.String)">
+            <summary>
+            取系统参数配置值 
+            </summary>
+            <param name="paramCode"></param>
+            <returns></returns>
+        </member>
+        <member name="P:CloudApi.ToolHelper.CacheData.accessTokenCacheModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CloudApi.ToolHelper.FunctionHelper.SerializerJson(CloudApi.Models.BaseInfo)">
+            <summary>
+            序列化一个对象 成为 json 格式返回..
+            </summary>
+            <param name="obj"> 对象 </param>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.ToolHelper.FunctionHelper.SerializerJson(System.Object)">
+            <summary>
+            序列化一个对象 成为 json 格式返回..
+            </summary>
+            <param name="obj"> 对象 </param>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.ToolHelper.FunctionHelper.GetTimStamp">
+            <summary>
+            时间转时间戳
+            </summary>
+            <param name="now"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.ToolHelper.FunctionHelper.writeLog(System.String,System.String,System.String)">
+            <summary>
+            写日志的函数
+            </summary>
+            <param name="headtype"></param>
+            <param name="logmsg"></param>
+            <param name="DevID"></param>
+        </member>
+        <member name="M:CloudApi.ToolHelper.FunctionHelper.Md532(System.String)">
+            <summary>
+            MD5加密
+            </summary>
+        </member>
+        <member name="M:CloudApi.ToolHelper.FunctionHelper.HashAlgorithmBase(System.Security.Cryptography.HashAlgorithm,System.String,System.Text.Encoding)">
+            <summary>
+            HashAlgorithm 加密统一方法
+            </summary>
+        </member>
+        <member name="M:CloudApi.ToolHelper.FunctionHelper.Bytes2Str(System.Collections.Generic.IEnumerable{System.Byte},System.String)">
+            <summary>
+            转换成字符串
+            </summary>
+        </member>
+        <member name="M:CloudApi.ToolHelper.FunctionHelper.PostJsonString(System.String,System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="url"></param>
+            <param name="jsonData"></param>
+            <param name="timeOut">默认超时时间为10秒</param>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.ToolHelper.FunctionHelper.IntArrayToStr(System.Int32[])">
+            <summary>
+            整型数组转成 字符串
+            </summary>
+            <param name="intArray">整型数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.ToolHelper.FunctionHelper.StrToIntArray(System.String)">
+            <summary>
+            字符串 转在 整型数组
+            </summary>
+            <param name="strvalue">字符串如： "1,2,3"</param>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.ToolHelper.FunctionHelper.GetDateTimeCodeString">
+            <summary>
+            取得以日期时间为编码的字符串   精确到秒
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.ToolHelper.FunctionHelper.GetDateTimeCodeLongString">
+            <summary>
+            取得以日期时间为编码的字符串  精确到毫秒, + 5位随机数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.ToolHelper.FunctionHelper.GetDateTimeCodeMoreLongString">
+            <summary>
+            取得以日期时间为编码的字符串  精确到毫秒, + 6位随机数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.ToolHelper.FunctionHelper.GetDateTimeCodeMoreMoreLongLongString">
+            <summary>
+            取得以日期时间为编码的字符串  精确到毫秒, + 7位随机数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.ToolHelper.FunctionHelper.GetDateTimeCodeShotString">
+            <summary>
+            取得以日期时间为编码的字符串  + 6位随机数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.ToolHelper.FunctionHelper.GetDeviceTypeCode(System.String)">
+            <summary>
+            取得设备类型编码
+            </summary>
+            <param name="devid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.ToolHelper.FunctionHelper.GetSceneImgPath(System.String)">
+            <summary>
+            取得情景图标 路径
+            </summary>
+            <param name="sceneImgCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.ToolHelper.FunctionHelper.GetAutoLockParamCode(System.String)">
+            <summary>
+            根据所传的不同的命令取得ParameCode
+            </summary>
+            <param name="OperCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.ToolHelper.FunctionHelper.GetSceneName(System.String)">
+            <summary>
+            取得情景名称
+            </summary>
+            <param name="devID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.ToolHelper.FunctionHelper.IsHostAction(System.String)">
+            <summary>
+            主机的动作，如升级，取版本号，添加设备，删除设备等，都需将主机号 作为设备号下发
+            </summary>
+            <param name="actionID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.ToolHelper.FunctionHelper.IsInfrareadDevice(System.String)">
+            <summary>
+            红外设备
+            </summary>
+            <param name="devTypeCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.ToolHelper.FunctionHelper.IsSceneDevice(System.String)">
+            <summary>
+            情景 设备--随意贴
+            </summary>
+            <param name="devTypeCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.ToolHelper.FunctionHelper.IsCountPowerDevice(System.String)">
+            <summary>
+            需统计电量 的设备
+            </summary>
+            <param name="devTypeCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.ToolHelper.FunctionHelper.AddQuot(System.String)">
+            <summary>
+            扩展 string方法 加上''号
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.ToolHelper.FunctionHelper.DateTimeFormat(System.DateTime)">
+            <summary>
+            将时间格式化成"yyyy-MM-dd HH:mm:ss"的格式 
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.ToolHelper.FunctionHelper.DeSerializerXml``1(System.String)">
+            <summary>
+            反序列化xml 数据到一个对象
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="xmlData">xml数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.ToolHelper.FunctionHelper.SerializerXml``1(``0)">
+            <summary>
+            序列化一个对象 到xml
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CloudApi.ToolHelper.FunctionHelper.HexToStr(System.String)">
+            <summary>
+            16进制转成字符串
+            </summary>
+            <param name="mHex"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CloudApi.ToolHelper.RedisManager">
+            <summary>
+             RedisManager类主要是创建链接池管理对象的  
+            </summary>
+        </member>
+        <member name="F:CloudApi.ToolHelper.RedisManager.RedisPath">
+            <summary>  
+            redis配置文件信息  
+            </summary>  
+        </member>
+        <member name="M:CloudApi.ToolHelper.RedisManager.#cctor">
+            <summary>  
+            静态构造方法，初始化链接池管理对象  
+            </summary>  
+        </member>
+        <member name="M:CloudApi.ToolHelper.RedisManager.CreateManager">
+            <summary>  
+            创建链接池管理对象  
+            </summary>  
+        </member>
+    </members>
+</doc>

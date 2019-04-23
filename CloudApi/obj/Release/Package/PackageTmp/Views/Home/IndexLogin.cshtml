@@ -1,0 +1,80 @@
+﻿@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+    <title>授权平台</title>
+    <link href="~/Content/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container-fluid">
+        <form id="form1" method="post" action="@Url.Action("Index2")" class="form-horizontal">
+
+            <div class="hidden">
+                <input type="text" name="clientId" value="@ViewBag.clientId" />
+                
+                <input type="text" name="redirect_uri" value="@ViewBag.redirect_uri" />
+                
+                
+                <input type="text" name="response_type" value="@ViewBag.response_type" />
+                
+                <input type="text" name="state" value="@ViewBag.state" />
+            </div>
+            
+            <div class="form-group">
+                <div class="col-xs-12 text-center">
+                    <h2>授权平台</h2>
+                </div>
+            </div>
+
+            <div class="form-group">
+
+            </div>
+            
+            <div class="form-group">
+                <label class="control-label col-xs-3">
+                    账号
+                </label>
+                <div class="col-xs-9">
+                    <input type="text" name="account" class="form-control" placeholder="请输入您的账号" />
+                </div>
+            </div>
+            
+            
+            <div class="form-group">
+                <label class="control-label col-xs-3">
+                    密码
+                </label>
+                <div class="col-xs-9">
+                    <input type="text" name="password" class="form-control" placeholder="请输入您的密码" />
+                </div>
+            </div>
+            
+            @{
+                if ((ViewBag.errorCode as string) == "1")
+                {
+                    <div class="form-control">
+                        绑定失败，请检查账号密码是否正确，再检查设备是否能正确连网!
+                    </div>
+                }
+            }
+            
+
+            
+            <div class="col-xs-12">
+                <input type="submit" value="确认并授权" class="btn btn-info" />
+            </div>
+
+            
+        </form>
+    </div>
+
+</body>
+</html>
